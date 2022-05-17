@@ -122,9 +122,10 @@ class ViewModel extends ChangeNotifier {
   }
 
   int getBreakTimeInSeconds() {
-    var result =
+    /* var result =
         tasks?.taskList?[currentTask].breaks[getCurTrainingIndex()] ?? 0;
-    return result * 60;
+    return result * 60;*/
+    return 5;
   }
 
   void decreasePushUps() {
@@ -136,6 +137,7 @@ class ViewModel extends ChangeNotifier {
   }
 
   Future<void> taskDone() async {
+    await Future<void>.delayed(const Duration(seconds: 4));
     await _taskDataProvider.saveCurrentTask(++currentTask);
     _trainingCycle?.changeCycle();
     notifyListeners();

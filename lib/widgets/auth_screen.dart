@@ -57,11 +57,28 @@ class _AuthScreenState extends State<AuthScreen> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: OrientationBuilder(builder: (context, orientation) {
-          return orientation == Orientation.portrait
-              ? _portraitWidget(context)
-              : _horizontalWidget(context);
-        }),
+        child: Center(
+          child: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Colors.black38,
+                  Colors.black12,
+                  Colors.black12,
+                  Colors.black38,
+                ],
+                stops: [0.0, 0.3, 0.7, 1.0],
+              ),
+            ),
+            child: OrientationBuilder(builder: (context, orientation) {
+              return orientation == Orientation.portrait
+                  ? _portraitWidget(context)
+                  : _horizontalWidget(context);
+            }),
+          ),
+        ),
       ),
     );
   }
