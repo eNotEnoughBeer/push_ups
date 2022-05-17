@@ -122,10 +122,9 @@ class ViewModel extends ChangeNotifier {
   }
 
   int getBreakTimeInSeconds() {
-    /* var result =
+    var result =
         tasks?.taskList?[currentTask].breaks[getCurTrainingIndex()] ?? 0;
-    return result * 60;*/
-    return 5;
+    return result * 60;
   }
 
   void decreasePushUps() {
